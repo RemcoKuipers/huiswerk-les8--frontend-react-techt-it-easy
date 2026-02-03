@@ -1,10 +1,13 @@
 import calculateTvSold from "./helpers/numberOfTvSold.js";
 import calculateTvInStock from "./helpers/numberOfTvInStock.js";
-import {inventory} from "./constants/inventory.js";
+import {bestSellingTv, inventory} from "./constants/inventory.js";
 import calculateTvToSell from "./helpers/numberOfTvToSell.js";
 import './App.css';
-
-
+import numberToValuta from "./helpers/numberToValuta.js";
+import infoStringTv from "./helpers/infoStringTv.js";
+import tvScreenSizeString from "./helpers/tvScreenSizeString.js";
+import check from "./assets/check.png"
+import minus from "./assets/minus.png"
 
 function App() {
     return (
@@ -24,8 +27,27 @@ function App() {
                     <p>Aantal te verkopen producten</p>
                     <h2>{calculateTvToSell(inventory)}</h2>
                 </article>
-
             </div>
+            <div className="best-sold-tv-container">
+                <h2>Best verkochte tv</h2>
+                <img src={bestSellingTv.sourceImg} alt="Afbeelding van een tv"/>
+                <h3>{infoStringTv(bestSellingTv)}</h3>
+                <p className="tv-price">{numberToValuta(bestSellingTv.price)}</p>
+                <p>{tvScreenSizeString(bestSellingTv.availableSizes)}</p>
+                <ul className="tv-options">
+                    <li><img src={check} alt="Icoon checkmark" className="icon"/> wifi</li>
+                    <li><img src={minus} alt="Icoon minus" className="icon"/> speech</li>
+                    <li><img src={check} alt="Icoon checkmark" className="icon"/> hdr</li>
+                    <li><img src={check} alt="Icoon checkmark" className="icon"/> bluetooth</li>
+                    <li><img src={minus} alt="Icoon minus" className="icon"/>ambilight</li>
+                </ul>
+            </div>
+            <section className="buttons-container">
+                <h2>Alle tvs</h2>
+                <button type="button" onClick={() => console.log('Meest verkocht eerst')}>Meest verkocht eerst</button>
+                <button type="button" onClick={() => console.log('Goedkoopste eerst')}>Goedkoopste eerst</button>
+                <button type="button" onClick={() => console.log('Meest geschikt voor sport eerst')}>Meest geschikt voor sport eerst</button>
+            </section>
         </main>
 
     )
