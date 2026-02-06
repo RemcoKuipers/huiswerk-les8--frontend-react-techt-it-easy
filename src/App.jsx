@@ -8,8 +8,12 @@ import infoStringTv from "./helpers/infoStringTv.js";
 import tvScreenSizeString from "./helpers/tvScreenSizeString.js";
 import check from "./assets/check.png"
 import minus from "./assets/minus.png"
+import showOutcomeInConsole from "./constants/oefenbestand.js";
 
 function App() {
+    showOutcomeInConsole();
+
+
     return (
         <main className="page-container">
             <h1>Tech it easy dashboard</h1>
