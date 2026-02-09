@@ -76,6 +76,24 @@ function App() {
                             <h3>{infoStringTv(tv)}</h3>
                             <p className="tv-price">{numberToValuta(tv.price)}</p>
                             <p>{tvScreenSizeString(tv.availableSizes)}</p>
+
+                            <ul className="tv-options">
+                                {tv.options.map((option) => {
+                                    if (option.applicable === true) {
+                                        return <li key={`${tv.type}-${option.name}`}>
+                                            <img src={check} alt="Icoon checkmark" className="icon"/>
+                                            {option.name}
+                                        </li>
+
+                                    }else {
+                                        return <li key={`${tv.type}-${option.name}`}>
+                                            <img src={minus} alt="Icoon minus" className="icon"/>
+                                            {option.name}
+                                        </li>
+                                    }
+
+                                })}
+                            </ul>
                         </div>
                     </article>
                 })}
