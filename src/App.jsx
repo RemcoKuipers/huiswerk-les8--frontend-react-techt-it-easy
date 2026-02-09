@@ -12,6 +12,8 @@ import showOutcomeInConsole from "./constants/oefenbestand.js";
 import sortMostSoldTv from "./helpers/sortMostSoldTv.js";
 import sortCheapestTv from "./helpers/sortCheapestTv.js";
 import sortBestForSportTv from "./helpers/sortBestForSportTv.js";
+import sortScreenSizeTv from "./helpers/sortScreenSizeTv.js";
+import outofstock from "./assets/out-of-stock.png"
 
 function App() {
     showOutcomeInConsole();
@@ -64,12 +66,14 @@ function App() {
                 <button type="button" onClick={sortBestForSportTv}>Meest geschikt voor
                     sport eerst
                 </button>
+                <button type="button" onClick={sortScreenSizeTv}>Grootste schermgroottes eerst</button>
             </section>
             <section>
 
 
                 {inventory.map((tv) => {
                     return <article key={tv.type} className="tv-product tv-best-seller">
+                        {tv.originalStock - tv.sold === 0 && <img src={outofstock} alt="Uitverkocht" className="tv-sold-out" />}
                         <span className="tv-image">
                     <img src={tv.sourceImg} alt="Afbeelding van een tv"/>
                     </span>

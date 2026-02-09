@@ -52,6 +52,18 @@
     flex-direction: row;
     gap: 34px;
     align-items: center;
+    position: relative;
+}
+
+.tv-sold-out{
+    position: absolute;
+    top: 10%;
+    left: 7%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 150px;
 }
 
 .tv-best-seller {
