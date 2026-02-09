@@ -9,6 +9,9 @@ import tvScreenSizeString from "./helpers/tvScreenSizeString.js";
 import check from "./assets/check.png"
 import minus from "./assets/minus.png"
 import showOutcomeInConsole from "./constants/oefenbestand.js";
+import sortMostSoldTv from "./helpers/sortMostSoldTv.js";
+import sortCheapestTv from "./helpers/sortCheapestTv.js";
+import sortBestForSportTv from "./helpers/sortBestForSportTv.js";
 
 function App() {
     showOutcomeInConsole();
@@ -56,16 +59,14 @@ function App() {
             </section>
             <section className="buttons-container">
                 <h2>Alle tvs</h2>
-                <button type="button" onClick={() => console.log('Meest verkocht eerst')}>Meest verkocht eerst</button>
-                <button type="button" onClick={() => console.log('Goedkoopste eerst')}>Goedkoopste eerst</button>
-                <button type="button" onClick={() => console.log('Meest geschikt voor sport eerst')}>Meest geschikt voor
+                <button type="button" onClick={sortMostSoldTv}>Meest verkocht eerst</button>
+                <button type="button" onClick={sortCheapestTv}>Goedkoopste eerst</button>
+                <button type="button" onClick={sortBestForSportTv}>Meest geschikt voor
                     sport eerst
                 </button>
             </section>
             <section>
-                {inventory.map((inventory) => {
-                    return inventory.brand;
-                })}
+
 
                 {inventory.map((tv) => {
                     return <article key={tv.type} className="tv-product tv-best-seller">
@@ -85,7 +86,7 @@ function App() {
                                             {option.name}
                                         </li>
 
-                                    }else {
+                                    } else {
                                         return <li key={`${tv.type}-${option.name}`}>
                                             <img src={minus} alt="Icoon minus" className="icon"/>
                                             {option.name}
