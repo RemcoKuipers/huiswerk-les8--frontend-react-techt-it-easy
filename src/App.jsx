@@ -34,23 +34,23 @@ function App() {
                     </article>
                 </div>
             </section>
-            <section >
+            <section>
                 <h2>Best verkochte tv</h2>
                 <article className="tv-product tv-best-seller">
                     <span className="tv-image">
                     <img src={bestSellingTv.sourceImg} alt="Afbeelding van een tv"/>
                     </span>
                     <div>
-                    <h3>{infoStringTv(bestSellingTv)}</h3>
-                    <p className="tv-price">{numberToValuta(bestSellingTv.price)}</p>
-                    <p>{tvScreenSizeString(bestSellingTv.availableSizes)}</p>
-                    <ul className="tv-options">
-                        <li><img src={check} alt="Icoon checkmark" className="icon"/> wifi</li>
-                        <li><img src={minus} alt="Icoon minus" className="icon"/> speech</li>
-                        <li><img src={check} alt="Icoon checkmark" className="icon"/> hdr</li>
-                        <li><img src={check} alt="Icoon checkmark" className="icon"/> bluetooth</li>
-                        <li><img src={minus} alt="Icoon minus" className="icon"/>ambilight</li>
-                    </ul>
+                        <h3>{infoStringTv(bestSellingTv)}</h3>
+                        <p className="tv-price">{numberToValuta(bestSellingTv.price)}</p>
+                        <p>{tvScreenSizeString(bestSellingTv.availableSizes)}</p>
+                        <ul className="tv-options">
+                            <li><img src={check} alt="Icoon checkmark" className="icon"/> wifi</li>
+                            <li><img src={minus} alt="Icoon minus" className="icon"/> speech</li>
+                            <li><img src={check} alt="Icoon checkmark" className="icon"/> hdr</li>
+                            <li><img src={check} alt="Icoon checkmark" className="icon"/> bluetooth</li>
+                            <li><img src={minus} alt="Icoon minus" className="icon"/>ambilight</li>
+                        </ul>
                     </div>
                 </article>
             </section>
@@ -62,6 +62,25 @@ function App() {
                     sport eerst
                 </button>
             </section>
+            <section>
+                {inventory.map((inventory) => {
+                    return inventory.brand;
+                })}
+
+                {inventory.map((tv) => {
+                    return <article key={tv.type} className="tv-product tv-best-seller">
+                        <span className="tv-image">
+                    <img src={tv.sourceImg} alt="Afbeelding van een tv"/>
+                    </span>
+                        <div>
+                            <h3>{infoStringTv(tv)}</h3>
+                            <p className="tv-price">{numberToValuta(tv.price)}</p>
+                            <p>{tvScreenSizeString(tv.availableSizes)}</p>
+                        </div>
+                    </article>
+                })}
+            </section>
+
         </main>
 
     )
