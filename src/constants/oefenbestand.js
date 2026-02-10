@@ -50,7 +50,8 @@ function showOutcomeInConsole() {
 
     const ambilightTV = inventory.filter((tv) => {
         const hasAmbilight = tv.options.find((option) => {
-            return option.name === "ambiLight"});
+            return option.name === "ambiLight"
+        });
         if (hasAmbilight.applicable === true) {
             return true;
         }

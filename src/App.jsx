@@ -73,7 +73,8 @@ function App() {
 
                 {inventory.map((tv) => {
                     return <article key={tv.type} className="tv-product tv-best-seller">
-                        {tv.originalStock - tv.sold === 0 && <img src={outofstock} alt="Uitverkocht" className="tv-sold-out" />}
+                        {tv.originalStock - tv.sold === 0 &&
+                            <img src={outofstock} alt="Uitverkocht" className="tv-sold-out"/>}
                         <span className="tv-image">
                     <img src={tv.sourceImg} alt="Afbeelding van een tv"/>
                     </span>

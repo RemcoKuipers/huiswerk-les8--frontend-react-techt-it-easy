@@ -42,7 +42,6 @@
 }
 
 
-
 .tv-product {
     border-radius: 4px;
     padding: 16px 32px;
@@ -55,7 +54,7 @@
     position: relative;
 }
 
-.tv-sold-out{
+.tv-sold-out {
     position: absolute;
     top: 10%;
     left: 7%;
@@ -90,6 +89,7 @@
     gap: 8px;
     padding-left: 0;
 }
+
 .tv-option img {
     margin-right: 4px;
 }
